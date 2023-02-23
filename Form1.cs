@@ -12,24 +12,23 @@ namespace GraphWinForm
 
         void AddTextBoxes()
         {
-            for (int i = 0; i < tableLayoutPanel1.ColumnCount; i++)
+            for (int i = 0; i < TableLayout.ColumnCount; i++)
             {
-                for (int j = 0; j < tableLayoutPanel1.ColumnCount; j++)
+                for (int j = 0; j < TableLayout.ColumnCount; j++)
                 {
                     TextBox tb = new TextBox() { Name = $"Node_{i}_{j}" };
-                    tableLayoutPanel1.Controls.Add(tb, i, j);
+                    TableLayout.Controls.Add(tb, i, j);
                     Matrix[i,j] = tb;
                 }
             }
 
-            foreach (var tb in tableLayoutPanel1.Controls.OfType<TextBox>().ToList())
+            foreach (var tb in TableLayout.Controls.OfType<TextBox>().ToList())
             {
                 if (tb.Name.Substring(5,1) == tb.Name.Substring(7,1))
                 {
                     tb.Text = "0";
                     tb.Enabled = false;
                     tb.ReadOnly = true;
-                        
                 }
             }
         }
@@ -38,7 +37,7 @@ namespace GraphWinForm
         {
             if (EvaluateMatrix())
             {
-                var tbs = tableLayoutPanel1.Controls.OfType<TextBox>().ToList();
+                var tbs = TableLayout.Controls.OfType<TextBox>().ToList();
                 FormGraph form = new FormGraph(tbs);
                 form.ShowDialog();
             }
