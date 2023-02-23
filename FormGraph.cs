@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace GraphWinForm
 {
+    /// <summary>
+    /// Based of in class example by Leo Hazou
+    /// </summary>
     public partial class FormGraph : Form
     {
         public List<TextBox> Edges = new List<TextBox>();
