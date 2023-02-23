@@ -97,10 +97,10 @@ namespace GraphWinForm
 
             vertices[0] = origin;
 
-            for (int i = 1; i < vertices.Length; i++)
+            for (int i = 0; i < vertices.Length; i++)
             {
-                double x = vertices[i - 1].X - CosDegree * length;
-                double y = vertices[i - 1].Y - SinDegree * length;
+                double x = vertices[i].X - CosDegree * length;
+                double y = vertices[i].Y - SinDegree * length;
 
                 vertices[i] = new PointF((int)x, (int)y);
                 degrees -= degreeOffset;
