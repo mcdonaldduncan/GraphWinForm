@@ -2,7 +2,7 @@ namespace GraphWinForm
 {
     public partial class Form1 : Form
     {
-        TextBox[,] _matrix = new TextBox[9,9];
+        TextBox[,] Matrix = new TextBox[9,9];
 
         public Form1()
         {
@@ -18,7 +18,7 @@ namespace GraphWinForm
                 {
                     TextBox tb = new TextBox() { Name = $"Node_{i}_{j}" };
                     tableLayoutPanel1.Controls.Add(tb, i, j);
-                    _matrix[i,j] = tb;
+                    Matrix[i,j] = tb;
                 }
             }
 
@@ -50,13 +50,13 @@ namespace GraphWinForm
 
         bool EvaluateMatrix()
         {
-            for (int i = 0; i < _matrix.GetLength(0); i++)
+            for (int i = 0; i < Matrix.GetLength(0); i++)
             {
-                for (int j = 0; j < _matrix.GetLength(1); j++)
+                for (int j = 0; j < Matrix.GetLength(1); j++)
                 {
-                    if (string.IsNullOrEmpty(_matrix[i, j].Text) || _matrix[i, j].Text == "0") continue;
+                    if (string.IsNullOrEmpty(Matrix[i, j].Text) || Matrix[i, j].Text == "0") continue;
 
-                    if (string.IsNullOrEmpty(_matrix[j, i].Text) || _matrix[j, i].Text != "0")
+                    if (string.IsNullOrEmpty(Matrix[j, i].Text) || Matrix[j, i].Text != "0")
                     {
                         return false;
                     }
